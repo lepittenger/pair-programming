@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <p>Pair Programming exercise: <a href="http://workshop.theresnobox.net/exercises/calculator.html">http://workshop.theresnobox.net/exercises/calculator.html</a></p>
+    <script>
+        function squareNumber(aNumber) {
+            var result = aNumber * aNumber;
+            console.log('The result of squaring the number ' + aNumber + ' is ' + result + '.');
+            return result;
+        }
+        function halfNumber(anotherNumber) {
+            return anotherNumber / 2;
+        }
+        function percentOf(number, percentOfNumber) {
+            var result = (number / percentOfNumber) * 100;
+            console.log(number + ' is ' + result + ' of ' + percentOfNumber);
+            return result;
+        }
+        function areaOfCircle(radius) {
+            var area = radius * radius * Math.PI;
+            console.log('the area of a circle with radius ' + radius + ' is ' + area);
+            area = Math.round(area*100)/100;
+            console.log('area rounded to 2 decimals: ' + area);
+            return area;            
+        }
+        function bonusFunction(argument){
+            var halfNumberResult = halfNumber(argument);
+            console.log(halfNumberResult);
+            var squareHalfNumber = squareNumber(halfNumberResult);
+            console.log(squareHalfNumber);
+            var areaOfSquareResult = areaOfCircle(squareHalfNumber);
+            console.log(areaOfSquareResult);
+            var percentOfArea = percentOf(squareHalfNumber, areaOfSquareResult);
+            console.log(percentOfArea);
+        }
+        squareNumber(8);
+        halfNumber(12);
+        percentOf(2, 4);
+        areaOfCircle(10);
+    </script>
+  </body>
+</html>
