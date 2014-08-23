@@ -32,26 +32,28 @@
       stopButton.removeAttribute('disabled');
       speedButton.removeAttribute('disabled');
     }
+    /* ==== START BUTTON ==== */
+    var startButton = document.getElementById('start-button');
+    startButton.addEventListener('click', startCatWalk);
+
     function fasterCatWalk() {
       movePixels += 5;
       var speed = movePixels * (1000/50);
-      document.getElementById('info').innerHTML = 'Current speed' + speed + 'px/second.';
+      document.getElementById('info').innerHTML = 'Current speed: ' + speed + 'px/second.';
     }
+    /* ==== SPEED BUTTON ==== */
+    var speedButton = document.getElementById('speed-button');
+    speedButton.addEventListener('click', fasterCatWalk);
+    speedButton.setAttribute('disabled', 'disabled');
+
     function stopCatWalk() {
       window.clearInterval(catTimer);
+      movePixels = 10;
       startButton.removeAttribute('disabled');
       speedButton.setAttribute('disabled', 'disabled');
       stopButton.setAttribute('disabled', 'disabled');
     }
-    
-
-    var startButton = document.getElementById('start-button');
-    startButton.addEventListener('click', startCatWalk);
-
-    var speedButton = document.getElementById('speed-button');
-    speedButton.addEventListener('click', fasterCatWalk);
-    speedButton.setAttribute('disabled', 'disabled');
-    
+    /* ==== STOP BUTTON ==== */
     var stopButton = document.getElementById('stop-button');
     stopButton.addEventListener('click', stopCatWalk);
     stopButton.setAttribute('disabled', 'disabled');
